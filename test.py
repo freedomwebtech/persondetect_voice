@@ -1,6 +1,22 @@
 import os
 import subprocess
 from gtts import gTTS
+from picamera import PiCamera
+from time import sleep
+
+
+
+
+def cam():
+    camera = PiCamera()
+    camera.rotation = 180
+    camera.sharpness = 50
+    camera.start_preview()
+    sleep(5)
+    camera.capture('/home/pi/uknown_people/image.jpg')
+    camera.stop_preview()
+
+
 
 
 
@@ -14,12 +30,6 @@ def speak(a):
 
 def recog():
     b=os.system("face_recognition known_people uknown_people/ | cut -d ',' -f2 > test.txt")
-
-#    with open("test.txt", "r") as f:
-#         for line in f:
-#             speak(line)
-             
-
     file1 = open('test.txt', 'r')
     Lines = file1.readlines()
     count = 0
@@ -30,7 +40,7 @@ def recog():
 
 
 
-
+cam()
 recog()
 
 
