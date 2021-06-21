@@ -11,6 +11,7 @@ def cam():
     camera = PiCamera()
     camera.rotation = 180
     camera.sharpness = 70
+    camera.saturation = 50
     camera.start_preview()
     sleep(5)
     camera.capture('/home/pi/persondetect_voice/unknown_people/image.jpg')
