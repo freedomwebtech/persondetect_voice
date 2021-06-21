@@ -13,7 +13,7 @@ def cam():
     camera.sharpness = 50
     camera.start_preview()
     sleep(5)
-    camera.capture('/home/pi/unknown_people/image.jpg')
+    camera.capture('/home/pi/persondetect_voice/unknown_people/image.jpg')
     camera.stop_preview()
 
 
